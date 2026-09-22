@@ -1,0 +1,21 @@
+# otel collector configuration example: https://opentelemetry.io/docs/collector/configuration/
+
+receivers:
+  otlp:
+    protocols:
+      grpc:
+        endpoint: ":4317"
+      http:
+        endpoint: ":4318"
+
+exporters:
+  otlp/tempo:
+    endpoint: "tempo:4317"
+    tls:
+      insecure: true            
+              
+service:
+  pipelines:
+    traces:
+      receivers: [otlp]
+      exporters: [otlp/tempo]

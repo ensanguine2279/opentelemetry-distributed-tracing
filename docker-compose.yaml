@@ -1,0 +1,71 @@
+services:
+  movie-service:
+    image: ensanguine/movie-service 
+    container_name: movie-service
+    volumes:
+      - ./docker-volume/otel:/otel
+    command: >
+      java
+      -javaagent:/otel/opentelemetry-javaagent.jar
+      -Dotel.javaagent.configuration-file=/otel/opentelemetry-config.properties
+      -Dotel.service.name=movie-service  
+      -jar /app/app.jar
+    depends_on:
+      - otel-collector
+    environment:
+      "actor-service.url": "http://actor-service:8080/api/actors/"
+      "review-service.url": "http://review-service:8080/api/reviews"
+    ports:
+      - "8080:8080"
+  actor-service:
+    image: ensanguine/actor-service
+    container_name: actor-service
+    volumes:
+      - ./docker-volume/otel:/otel
+    command: >
+      java
+      -javaagent:/otel/opentelemetry-javaagent.jar
+      -Dotel.javaagent.configuration-file=/otel/opentelemetry-config.properties
+      -Dotel.service.name=actor-service
+      -jar /app/app.jar
+    depends_on:
+      - otel-collector
+  review-service:
+    image: ensanguine/review-service
+    container_name: review-service
+    volumes:
+      - ./docker-volume/otel:/otel
+    command: >
+      java
+      -javaagent:/otel/opentelemetry-javaagent.jar
+      -Dotel.javaagent.configuration-file=/otel/opentelemetry-config.properties 
+      -Dotel.service.name=review-service    
+      -jar /app/app.jar
+    depends_on:
+      - otel-collector
+  otel-collector:
+    image: otel/opentelemetry-collector-contrib:0.158.0
+    container_name: otel-collector
+    command: ["--config=/etc/otel/collector-config.yml"]
+    volumes:
+      - ./docker-volume/collector-config.yaml:/etc/otel/collector-config.yml
+  tempo:
+    image: grafana/tempo:3.0.2
+    container_name: tempo
+    command: ["-config.file=/etc/tempo.yaml"]
+    volumes:
+      - ./docker-volume/tempo.yaml:/etc/tempo.yaml
+    depends_on:
+      - otel-collector
+  grafana:
+    image: grafana/grafana:13.1.3
+    container_name: grafana
+    volumes:
+      - ./docker-volume/grafana-datasources.yaml:/etc/grafana/provisioning/datasources/datasource.yaml
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_USER=admin
+      - GF_SECURITY_ADMIN_PASSWORD=admin
+    depends_on:
+      - tempo
