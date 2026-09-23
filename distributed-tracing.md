@@ -4,11 +4,11 @@ Login to the Grafana dashboard using credentials `admin`/`admin`.
 
 ![Grafana login](.images/grafana-login.jpg)
 
-Click on the hamburger menu at the top right corner to bring out the main menu.
+Click on the hamburger menu at the left right corner to bring out the main menu.
 
 ![Grafana dashboard](.images/garfana-dashboard.jpg)
 
-click on the `Explore` menu item.
+Select the `Explore` menu item.
 
 ![Grafana Explore](.images/grafana-explore.jpg)
 
@@ -16,7 +16,7 @@ The `Explore` page has a `Tempo` data source which came from the [grafana-dataso
 
 ![Grafana Explore - Tempo](.images/grafana-explore-tempo.jpg)
 
-Click on the `Search` Query Type, brings up a list of traces related to the initialization of the 3 application services.
+Click on the `Search` Query Type, this brings up a list of traces related to the initialization of the 3 application services.
 
 ![Grafana Explore - Tempo - Traces](.images/grafana-explore-tempo-traces.jpg)
 
@@ -50,4 +50,4 @@ Click on `Span attributes` reveals additional details related to the span. For e
 
 ![Grafana Explore - Trace - Span attributes](.images/grafana-trace-span-attributes.jpg)
 
-Using Grafana Explore we can gather granular visual insights making it easy to identify hidden microservice latency (e.g. database overhead or downstream API dependencies) within seconds.
+We have just demonstrated how to use Grafana Explore to gather granular visual insights, making it easy to identify hidden microservice latency (e.g. database overhead or downstream API dependencies) within seconds.
