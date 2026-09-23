@@ -1,7 +1,5 @@
 # Distributed Tracing Demo
 
-## Http Status 200
-
 Login to the Grafana dashboard using credentials `admin`/`admin`.
 
 ![Grafana login](.images/grafana-login.jpg)
@@ -54,4 +52,6 @@ Click on `Span attributes` reveals additional details related to the span. For e
 
 We have just demonstrated how to use Grafana Explore to gather granular visual insights, making it easy to identify hidden microservice latency (e.g. database overhead or downstream API dependencies) within seconds.
 
-## Http Status 500
+Now lets simulate a 500 Internal Server Error and see how we can trace it using the observability stack setup here.
+
+![Postman - Get Movie - Internal Server Error](.images/postman-movies-get-500.jpg)
