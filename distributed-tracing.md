@@ -1,5 +1,7 @@
 # Distributed Tracing Demo
 
+## Http Status 200
+
 Login to the Grafana dashboard using credentials `admin`/`admin`.
 
 ![Grafana login](.images/grafana-login.jpg)
@@ -51,3 +53,5 @@ Click on `Span attributes` reveals additional details related to the span. For e
 ![Grafana Explore - Trace - Span attributes](.images/grafana-trace-span-attributes.jpg)
 
 We have just demonstrated how to use Grafana Explore to gather granular visual insights, making it easy to identify hidden microservice latency (e.g. database overhead or downstream API dependencies) within seconds.
+
+## Http Status 500
