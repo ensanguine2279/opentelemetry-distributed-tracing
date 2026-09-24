@@ -64,6 +64,10 @@ In the trace details panel, Service & Operation section, we can tell that there 
 
 ![Garfana Explore - Trace - get movie](.images/garfana-trace-movie.jpg)
 
-Click on the `movie-service GET /api/movies/{movieId}` to drill into the details.
+Click on the `movie-service GET /api/movies/{movieId}` to drill into the details. From the details, we can tell that the API is returning a 500 server error status, it contains 4 child spans, and it has one event.
 
 ![Garfana Explore - Trace - get movie details](.images/garfana-trace-movie-details.jpg)
+
+Click on the `Span attributes` and we can verify the url path (`/api/movies`) and path variable (`10`) that caused the server 500 error.
+
+![Garfana Explore - Trace - get movie - Span attributes](.images/garfana-trace-movie-span-attributes.jpg)
