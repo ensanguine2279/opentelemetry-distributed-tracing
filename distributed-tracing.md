@@ -56,6 +56,10 @@ Now lets simulate a 500 Internal Server Error and see how we can trace it using 
 
 ![Postman - Get Movie - Internal Server Error](.images/postman-movies-get-500.jpg)
 
-In `Garfana Explore`, click to trace ID to bring up the trace details panel in a new browser tab.
+In `Garfana Explore`, click on the trace ID to bring up the trace details panel in a new browser tab.
 
 ![Garfana Explore - Trace - Status 500](.images/garfana-trace-500.jpg)
+
+In the trace details panel, Service & Operation section, we can tell that there is an issue with the API call with the red icon.
+
+![Garfana Explore - Trace - get movie](.images/garfana-trace-movie.jpg)
