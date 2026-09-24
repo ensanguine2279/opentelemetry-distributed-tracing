@@ -79,3 +79,7 @@ Click on the `Events` drop down we now know that underlying the 500 server error
 Investigating deeper into the stack trace, we can confirm that the 404 error is coming from the `actor-service`.
 
 ![Garfana Explore - Trace - get movie - Events - actor](.images/garfana-trace-movie-event-actor.jpg)
+
+Going back to the `Service & Operation` section, we can see that indeed there is a problem with the API call with the `actor-service`.
+
+![Garfana Explore - Trace - get actor](.images/garfana-trace-movie-actor.jpg)
