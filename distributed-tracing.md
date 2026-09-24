@@ -52,6 +52,10 @@ Click on `Span attributes` reveals additional details related to the span. For e
 
 We have just demonstrated how to use Grafana Explore to gather granular visual insights, making it easy to identify hidden microservice latency (e.g. database overhead or downstream API dependencies) within seconds.
 
-Now lets simulate a 500 Internal Server Error and see how we can trace it using the observability stack setup here.
+Now lets simulate a 500 Internal Server Error and see how we can trace it using the observability stack setup here. Make a API call to the same get movie by ID endpoint, this time using `id = 10` (http://localhost:8080/api/movies/10)
 
 ![Postman - Get Movie - Internal Server Error](.images/postman-movies-get-500.jpg)
+
+In `Garfana Explore`, click to trace ID to bring up the trace details panel in a new browser tab.
+
+![Garfana Explore - Trace - Status 500](.images/garfana-trace-500.jpg)
