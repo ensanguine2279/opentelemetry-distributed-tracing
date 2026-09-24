@@ -52,6 +52,8 @@ Click on `Span attributes` reveals additional details related to the span. For e
 
 We have just demonstrated how to use Grafana Explore to gather granular visual insights, making it easy to identify hidden microservice latency (e.g. database overhead or downstream API dependencies) within seconds.
 
+## Troubleshooting using Distributed Tracing
+
 Now lets simulate a 500 Internal Server Error and see how we can trace it using the observability stack setup here. Make a API call to the same get movie by ID endpoint, this time using `id = 10` (http://localhost:8080/api/movies/10)
 
 ![Postman - Get Movie - Internal Server Error](.images/postman-movies-get-500.jpg)
@@ -87,3 +89,5 @@ Going back to the `Service & Operation` section, we can see that indeed there is
 Drilling into the `Span attributes`, we can confirm that it is a 404 Not Found error and the url path is `/api/actors/20`. The developers can then investigate the reasons behind why actor entity with `id = 20` is missing.
 
 ![Garfana Explore - Trace - get actor - 404](.images/garfana-trace-actor-404.jpg)
+
+Here, we have demonstrated how we can troubleshoot an API erorr using distributed tracing across multiple services.
