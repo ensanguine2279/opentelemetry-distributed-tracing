@@ -63,3 +63,7 @@ In `Garfana Explore`, click on the trace ID to bring up the trace details panel 
 In the trace details panel, Service & Operation section, we can tell that there is an issue with the API call with the red icon.
 
 ![Garfana Explore - Trace - get movie](.images/garfana-trace-movie.jpg)
+
+Click on the `movie-service GET /api/movies/{movieId}` to drill into the details.
+
+![Garfana Explore - Trace - get movie details](.images/garfana-trace-movie-details.jpg)
