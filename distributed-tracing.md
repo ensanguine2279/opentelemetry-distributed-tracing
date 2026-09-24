@@ -68,6 +68,14 @@ Click on the `movie-service GET /api/movies/{movieId}` to drill into the details
 
 ![Garfana Explore - Trace - get movie details](.images/garfana-trace-movie-details.jpg)
 
-Click on the `Span attributes` and we can verify the url path (`/api/movies`) and path variable (`10`) that caused the server 500 error.
+Click on the `Span attributes` drop down and we can verify the url path (`/api/movies`) and path variable (`10`) that caused the 500 server error.
 
 ![Garfana Explore - Trace - get movie - Span attributes](.images/garfana-trace-movie-span-attributes.jpg)
+
+Click on the `Events` drop down we now know that underlying the 500 server error is actually a 404 Not Found error. The `GET` movie API call makes further calls to the `review-service` and the `actor-service`. Probably one of these calls failed and caused the error.
+
+![Garfana Explore - Trace - get movie - Events](.images/garfana-trace-movie-event-404.jpg)
+
+Investigating deeper into the stack trace, we can confirm that the 404 error is coming from the `actor-service`.
+
+![Garfana Explore - Trace - get movie - Events - actor](.images/garfana-trace-movie-event-actor.jpg)
