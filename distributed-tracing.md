@@ -83,3 +83,7 @@ Investigating deeper into the stack trace, we can confirm that the 404 error is 
 Going back to the `Service & Operation` section, we can see that indeed there is a problem with the API call with the `actor-service`.
 
 ![Garfana Explore - Trace - get actor](.images/garfana-trace-movie-actor.jpg)
+
+Drilling into the `Span attributes`, we can confirm that it is a 404 Not Found error and the url path is `/api/actors/20`. The developers can then investigate the reasons behind why actor entity with `id = 20` is missing.
+
+![Garfana Explore - Trace - get actor - 404](.images/garfana-trace-actor-404.jpg)
